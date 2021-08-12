@@ -3,7 +3,7 @@ import random
 import sys
 
 # Make an HTTP GET request to the cat-fact API
-cat_url = "https://catfact.ninja/facts"
+cat_url = "https://catfact.ninja/facts?limit=3"
 r = requests.get(cat_url)
 r_obj_list = r.json()
 
@@ -13,6 +13,7 @@ fact_list = []
 
 # Add the "text" of every object into the fact_list list
 for fact in r_obj_list["data"]:
+    print(fact["fact"])
     fact_list.append(fact["fact"])
 
 # Select a random fact from the fact_list and return it
